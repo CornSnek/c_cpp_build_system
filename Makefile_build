@@ -1,7 +1,9 @@
+#!/bin/make
 #Use ./make.sh to set the proper variables as defined in the project's build.conf.
 ifeq ($(used_make_sh),)
 $(error Use make.sh and a project's build.conf to set the proper variables for this makefile to work properly)
 endif
+$(shell mkdir -p src include build shared_src shared_include bin)
 main_src_d=src/$(project_name)
 main_bin_d=bin/$(project_name)
 main_include_d=include/$(project_name)
