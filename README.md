@@ -6,13 +6,13 @@ One example for `src` or `shared_src` usage is to build one projects but with di
 
 There are example .c and .h code that uses different `build.conf` files, and two of the projects are using a folder in the `shared_include` and `shared_src` directory. One binary requires [libsodium](https://doc.libsodium.org/) to work (`src/random_hex`).
 
-#####Usage
+##### Usage
 
 Copy build.conf into a `src/(project_name)` file. Change the flags for the Makefile_build to parse. Note that the folders that are auto included for a project_name are `-Iinclude/(project_name)` only. Any shared_src names added in the build.conf file auto includes the directory `-Ishared_include/(shared_name)` for each shared_name. 
 
-This project was built using Visual Studio Code, but it is optional for the build system to work. To build the binary, use a shell terminal using `make.sh` or source tasks.conf. The binary output is in the `bin/(project_name)` folder.
+This project was built using Visual Studio Code, but it is optional for the build system to work. To build the binary, use a shell terminal using `make.sh` or `source tasks.conf`. The binary output is in the `bin/(project_name)` folder.
 
-#####Limitations
+##### Limitations
 
 In the build folder, any src .o files are in the directory `build/(project_name)`, and any shared_src .o files are in the directory `build/(project_name)/shared_src/(shared_name)`. Do not name any files or folders as `shared_src`, or there might be makefile problems.
 
