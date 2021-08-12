@@ -26,7 +26,7 @@ else
     >&2 echo "Project name directory \"$1\" does not have a build.conf."
     exit 1
 fi
-all_shared_include_d=$(ls -d shared_include/*/ | sed 's#/##g' | sed 's#shared_include##')
+all_shared_include_d=$(ls -d shared_include/*/ 2>/dev/null | sed 's#/##g' | sed 's#shared_include##')
 for us in $use_shared; do
     for ss in $all_shared_include_d; do
         if [[ "$us" = "$ss" ]]; then #Add any shared_include projects from build.conf.
