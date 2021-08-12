@@ -1,16 +1,23 @@
 {
-    "configurations": [
-        {
-            "name": "Linux",
-            "includePath": [
-                "${workspaceFolder}/shared_include/hex_lerping"
-            ],
-            "compilerArgs": [],
-            "defines": [],
-            "compilerPath": "/usr/bin/clang",
-            "cStandard": "c17",
-            "intelliSenseMode": "linux-clang-x64"
-        }
-    ],
-    "version": 4
+  "configurations": [
+    {
+      "name": "Linux",
+      "includePath": [
+        "${workspaceFolder}/include/terminal_bg",
+        "${workspaceFolder}/shared_include/hex_lerping"
+      ],
+      "compilerArgs": [
+        "-O3",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-std=c17"
+      ],
+      "defines": [],
+      "compilerPath": "/usr/bin/clang",
+      "cStandard": "c17",
+      "intelliSenseMode": "linux-clang-x64"
+    }
+  ],
+  "version": 4
 }

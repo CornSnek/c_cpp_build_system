@@ -17,3 +17,5 @@ This project was built using Visual Studio Code, but it is optional for the buil
 In the build folder, any src .o files are in the directory `build/(project_name)`, and any shared_src .o files are in the directory `build/(project_name)/shared_src/(shared_name)`. Do not name any files or folders as `shared_src`, or there might be makefile problems.
 
 If using Visual Studio Code and the C/C++ extension, the `c_cpp_properties.json` needs to be manually edited for the "includePath", "compilerArgs", "defines"... etc. for the C/C++ extension to work properly.
+Update August 12, 2021: For Visual Studio Code, Added `change_includes.sh` that can add a project name's flags and includes to the `.vscode/c_cpp_properties.json` automatically, and makes a backup file to `.vscode/c_cpp_properties.json.old`. This requires the [jq library](https://stedolan.github.io/jq/). It only rewrites "includePath", "compilerArgs", and "defines". Other keys may need to be manually configured.
+Usage: `./change_includes.sh` (project_name in src) (Platform such as Linux,Win32,or Mac). This has been only tested for Linux.
