@@ -3,7 +3,7 @@ if [[ -z $1 ]]; then
     echo "Usage: ./make.sh project_name (Directory within src/ with build.conf) makefile_option (Number. Check/modify make.sh for options.)"
     exit 0
 fi
-project_dirs=$(ls -d src/*/ | sed 's#/##g' | sed 's#src##') #Make space separated string list of src subdirectories
+project_dirs=$(ls -d src/*/ 2>/dev/null | sed 's#/##g' | sed 's#src##') #Make space separated string list of src subdirectories
 for pn in $project_dirs; do
     if [[ "$pn" = "$1" ]]; then #Add name if within src directory.
         project_name=$1
@@ -20,7 +20,7 @@ else
     >&2 echo "Unable to build! Project name directory \"$1\" does not have a build.conf. Copy build.conf from project root directory."
     exit 1
 fi
-all_shared_src_d=$(ls -d shared_src/*/ | sed 's#/##g' | sed 's#shared_src##')
+all_shared_src_d=$(ls -d shared_src/*/ 2>/dev/null | sed 's#/##g' | sed 's#shared_src##')
 use_shared_src_d=""
 for us in $use_shared; do
     for ss in $all_shared_src_d; do

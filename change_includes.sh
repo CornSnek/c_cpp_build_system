@@ -7,7 +7,7 @@ if [[ "$2" != "Linux" ]] && [[ "$2" != "Mac" ]] && [[ "$2" != "Win32" ]]; then
     echo "Second argument needs to be either Linux, Mac, or Win32"
     exit 0
 fi
-project_dirs=$(ls -d src/*/ | sed 's#/##g' | sed 's#src##') #Make space separated string list of src subdirectories
+project_dirs=$(ls -d src/*/ 2>/dev/null | sed 's#/##g' | sed 's#src##') #Make space separated string list of src subdirectories
 for pn in $project_dirs; do
     if [[ "$pn" = "$1" ]]; then #Add name if within src directory.
         project_name="src/$1"
